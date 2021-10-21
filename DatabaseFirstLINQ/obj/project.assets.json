@@ -5803,11 +5803,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\DatabaseFirstLINQ\\DatabaseFirstLINQ\\DatabaseFirstLINQ.csproj",
+      "projectUniqueName": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\C# Problems\\LINQ_Partner_Problems\\DatabaseFirstLINQ\\DatabaseFirstLINQ.csproj",
       "projectName": "DatabaseFirstLINQ",
-      "projectPath": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\DatabaseFirstLINQ\\DatabaseFirstLINQ\\DatabaseFirstLINQ.csproj",
+      "projectPath": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\C# Problems\\LINQ_Partner_Problems\\DatabaseFirstLINQ\\DatabaseFirstLINQ.csproj",
       "packagesPath": "C:\\Users\\pfaff\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\DatabaseFirstLINQ\\DatabaseFirstLINQ\\obj\\",
+      "outputPath": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\C# Problems\\LINQ_Partner_Problems\\DatabaseFirstLINQ\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pfaff\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4hZrW2BCjbSFIqVCgwCjx4LlsZdKgYmwx4Slv0FeraqWP7O8SxVmaknbEu+yawYo1LjCAfduDm4I8Phgm0UnqQ==",
+  "dgSpecHash": "GX0xuYqENMoAFpdaJQ1uiDD3bsoF8MMADhE5IZ7tXQlPFelvHT0NhQ7R+Ip6VgOrP/6nqt1TbmBB6xK7zeZZHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\DatabaseFirstLINQ\\DatabaseFirstLINQ\\DatabaseFirstLINQ.csproj",
+  "projectFilePath": "C:\\Users\\pfaff\\OneDrive\\Documents\\devCodeCamp\\Week 9\\C# Problems\\LINQ_Partner_Problems\\DatabaseFirstLINQ\\DatabaseFirstLINQ.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pfaff\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\pfaff\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
