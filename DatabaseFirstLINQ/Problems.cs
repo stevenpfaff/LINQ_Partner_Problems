@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DatabaseFirstLINQ.Models;
+using System.Collections.Generic;
 
 namespace DatabaseFirstLINQ
 {
@@ -35,15 +36,16 @@ namespace DatabaseFirstLINQ
             //ProblemEighteen();
             ProblemNineteen();
             //ProblemTwenty();
-            BonusOne();
+            //BonusOne();
+            BonusTwo();
         }
 
         // <><><><><><><><> R Actions (Read) <><><><><><><><><>
-        private void ProblemOne()  
+        private void ProblemOne()
         {
             var users = _context.Users.ToList().Count;
             Console.WriteLine(users);
-     
+
             // Write a LINQ query that returns the number of users in the Users table.
             // HINT: .ToList().Count
 
@@ -69,9 +71,9 @@ namespace DatabaseFirstLINQ
             {
                 if (product.Price > 150)
                     Console.WriteLine($"{product.Price} {product.Name}");
-  
+
             }
-            
+
             // Write a LINQ query that gets each product where the products price is greater than $150.
             // Then print the name and price of each product from the above query to the console.
 
@@ -85,10 +87,10 @@ namespace DatabaseFirstLINQ
             var products = _context.Products;
 
             foreach (Product product in products)
-            { 
-                if(product.Name.Contains("s"))    
-                Console.WriteLine(product.Name);
-               
+            {
+                if (product.Name.Contains("s"))
+                    Console.WriteLine(product.Name);
+
             }
         }
 
@@ -138,7 +140,7 @@ namespace DatabaseFirstLINQ
             // Write a LINQ query that retreives all of the products in the shopping cart of the user who has the email "afton@gmail.com".
             // Then print the product's name, price, and quantity to the console.
             var productsInCart = _context.ShoppingCarts.Include(user => user.User).Include(user => user.Product).Where(user => user.User.Email == "afton@gmail.com");
-            foreach(ShoppingCart shoppingCart in productsInCart)
+            foreach (ShoppingCart shoppingCart in productsInCart)
             {
                 Console.WriteLine(shoppingCart.Product.Name + ", $" + shoppingCart.Product.Price + ", " + shoppingCart.Quantity);
 
@@ -328,8 +330,22 @@ namespace DatabaseFirstLINQ
         {
             // Write a query that finds the total of every users shopping cart products using LINQ.
             // Display the total of each users shopping cart as well as the total of the toals to the console.
+            List<int> userId = _context.Users.Select(sc => sc.Id).ToList();
+            decimal? allUsersTotal = 0;
+            foreach (int id in userId)
+            {
+                var shoppingCarts = _context.ShoppingCarts.Where(user => user.User.Id == id).Select(sc => new { sc.Product.Price, sc.Quantity });
+                decimal? total = 0;
+                foreach (var product in shoppingCarts)
+                {
+                    total += product.Price * product.Quantity;
+                }
+                Console.WriteLine($"User {id}'s shopping cart is at a total of ${total}");
+                allUsersTotal += total;
+            }
+            Console.WriteLine($"All users shopping carts come to a total of ${allUsersTotal}");
         }
-
+    
         // BIG ONE
         private void BonusThree()
         {
