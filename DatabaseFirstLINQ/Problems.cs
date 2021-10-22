@@ -31,8 +31,8 @@ namespace DatabaseFirstLINQ
             //ProblemFourteen();
             ProblemFifteen();
             ProblemSixteen();
-            //ProblemSeventeen();
-            //ProblemEighteen();
+            ProblemSeventeen();
+            ProblemEighteen();
             //ProblemNineteen();
             //ProblemTwenty();
         }
@@ -257,8 +257,8 @@ namespace DatabaseFirstLINQ
             _context.UserRoles.Remove(userRole);
             UserRole newUserRole = new UserRole()
             {
-                UserId = _context.Users.Where(u => u.Email == "mike@gmail.com").Select(u => u.Id).SingleOrDefault(),
-                RoleId = _context.Roles.Where(r => r.RoleName == "Employee").Select(r => r.Id).SingleOrDefault()
+                UserId = _context.Users.Where(u => u.Email == "mike@gmail.com").Select(u => u.Id).FirstOrDefault(),
+                RoleId = _context.Roles.Where(r => r.RoleName == "Employee").Select(r => r.Id).FirstOrDefault()
             };
             _context.UserRoles.Add(newUserRole);
             _context.SaveChanges();
@@ -269,7 +269,9 @@ namespace DatabaseFirstLINQ
         private void ProblemEighteen()
         {
             // Delete the role relationship from the user who has the email "oda@gmail.com" using LINQ.
-
+            var userRole = _context.UserRoles.Where(ur => ur.User.Email == "oda@gmail.com").SingleOrDefault();
+            _context.UserRoles.Remove(userRole);
+            _context.SaveChanges();
         }
 
         private void ProblemNineteen()
