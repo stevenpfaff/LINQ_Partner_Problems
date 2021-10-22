@@ -2,7 +2,6 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DatabaseFirstLINQ.Models;
-using System.Collections.Generic;
 
 namespace DatabaseFirstLINQ
 {
@@ -20,7 +19,7 @@ namespace DatabaseFirstLINQ
             ProblemTwo();
             ProblemThree();
             ProblemFour();
-            //ProblemFive();
+            ProblemFive();
             //ProblemSix();
             //ProblemSeven();
             //ProblemEight();
@@ -96,6 +95,13 @@ namespace DatabaseFirstLINQ
         {
             // Write a LINQ query that gets all of the users who registered BEFORE 2016
             // Then print each user's email and registration date to the console.
+            var users = _context.Users;
+            DateTime CompareDate = new DateTime(2016, 01, 01);
+            foreach (User user in users)
+            {
+                if (user.RegistrationDate < CompareDate)
+                    Console.WriteLine($"{user.Email} {user.RegistrationDate}");
+            }
 
         }
 
