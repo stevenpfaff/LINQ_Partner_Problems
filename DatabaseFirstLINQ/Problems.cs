@@ -28,7 +28,7 @@ namespace DatabaseFirstLINQ
             ProblemEleven();
             ProblemTwelve();
             //ProblemThirteen();
-            //ProblemFourteen();
+            ProblemFourteen();
             //ProblemFifteen();
             //ProblemSixteen();
             //ProblemSeventeen();
@@ -203,7 +203,7 @@ namespace DatabaseFirstLINQ
         {
             // Add the role of "Customer" to the user we just created in the UserRoles junction table using LINQ.
             var roleId = _context.Roles.Where(r => r.RoleName == "Customer").Select(r => r.Id).SingleOrDefault();
-            var userId = _context.Users.Where(u => u.Email == "david@gmail.com").Select(u => u.Id).SingleOrDefault();
+            var userId = _context.Users.Where(u => u.Email == "david@gmail.com").Select(u => u.Id).FirstOrDefault();
             UserRole newUserRole = new UserRole()
             {
                 UserId = userId,
@@ -216,7 +216,16 @@ namespace DatabaseFirstLINQ
         private void ProblemFourteen()
         {
             // Add the product you create to the user we created in the ShoppingCart junction table using LINQ.
+            var userId = _context.Users.Where(u => u.Email == "david@gmail.com").Select(u => u.Id).FirstOrDefault();
+            var productId = _context.Products.Where(p => p.Name == "Halo 3 ODST").Select(p => p.Id).FirstOrDefault();
+            ShoppingCart newProduct = new ShoppingCart()
+            {
+                UserId = userId,
+                ProductId = productId
 
+            };
+            _context.ShoppingCarts.Add(newProduct);
+            _context.SaveChanges();
         }
 
         // <><> U Actions (Update) <><>
